@@ -28,6 +28,8 @@ export default class CacheManager<T> {
 	}
 
 	public set(filePath: string, key: string, value: T) {
+    if (this.allVariables.has(key)) return
+
 		if (!this.cachedVariables[filePath]) {
 			this.cachedVariables[filePath] = new Map();
 		}
